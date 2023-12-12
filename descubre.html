@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>FindYourBeat</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>FindYourBeat</h1>
+        <img src="./imagenes/musicahtml.png" alt="Logo de FindYourBeat"/>
+    </header>
+
+    <nav>
+        <a href="./index.html">Inicio</a>
+        <a href="./descubre.html">Descubre</a>
+        <a href="./sobremi.html">Sobre mí</a>
+        <a href="./fundamentos.html">Fundamentos</a>
+        <a href="./contacto.html">Contacto</a>
+        <a href="./Red.html">Redes</a>
+    </nav>
+    <div id="bienvenida">
+        <h2>Hola, esta es una encuesta para encontrar tu género musical preferido.</h2>
+        <p>Después te mostraré una playlist adaptada a ti.</p>
+    </div>
+
+    <form id="musicSurvey">
+        <h2>Encuesta de Género Musical</h2>
+
+        <label>
+            ¿Prefieres ritmos pegajosos o algo más relajado?
+            <div>
+                <input type="radio" name="ritmo" value="pegajoso"> Ritmos pegajosos
+                <input type="radio" name="ritmo" value="relajado"> Algo más relajado
+            </div>
+        </label>
+
+        <label>
+            ¿Te gusta la instrumentación compleja o algo más simple?
+            <div>
+                <input type="radio" name="instrumentacion" value="compleja"> Compleja
+                <input type="radio" name="instrumentacion" value="simple"> Simple
+            </div>
+        </label>
+
+        <label>
+            ¿Prefieres letras profundas o algo más ligero?
+            <div>
+                <input type="radio" name="letras" value="profundas"> Letras profundas
+                <input type="radio" name="letras" value="ligero"> Algo más ligero
+            </div>
+        </label>
+
+        <button type="button" onclick="obtenerResultado()">Obtener Resultado</button>
+    </form>
+
+    <h2 id="result"></h2>
+
+    <script>
+        function obtenerResultado() {
+            var ritmo = document.querySelector('input[name="ritmo"]:checked');
+            var instrumentacion = document.querySelector('input[name="instrumentacion"]:checked');
+            var letras = document.querySelector('input[name="letras"]:checked');
+
+            if (ritmo && instrumentacion && letras) {
+                var resultText = "¡Genial! Basado en tus preferencias, te recomiendo explorar el género ";
+                resultText += obtenerGeneroRecomendado(ritmo.value, instrumentacion.value, letras.value) + ". ";
+                resultText += "Aquí tienes una <a href='" + obtenerEnlaceSpotify(ritmo.value, instrumentacion.value, letras.value) + "' target='_blank'>playlist recomendada en Spotify</a>.";
+                document.getElementById("result").innerHTML = resultText;
+            } else {
+                document.getElementById("result").innerHTML = "Por favor, responde todas las preguntas.";
+            }
+        }
+
+        function obtenerGeneroRecomendado(ritmo, instrumentacion, letras) {
+            
+            if (ritmo === "pegajoso" && instrumentacion === "compleja" && letras === "profundas") {
+                return "Jazz Fusion";
+            } else if (ritmo === "pegajoso" && instrumentacion === "simple" && letras === "ligero") {
+                return "Pop";
+            } else if (ritmo === "relajado" && instrumentacion === "compleja" && letras === "profundas") {
+                return "Prog Rock";
+            } else if (ritmo === "relajado" && instrumentacion === "simple" && letras === "ligero") {
+                return "Folk";
+            } else {
+                return "desconocido"; // 
+            }
+        }
+
+        function obtenerEnlaceSpotify(ritmo, instrumentacion, letras) {
+          
+            switch (obtenerGeneroRecomendado(ritmo, instrumentacion, letras)) {
+                case "Jazz Fusion":
+                    return "https://open.spotify.com/playlist/18vUeZ9BdtMRNV6gI8RnR6?si=992089f885674d1dwat";
+                case "Pop":
+                    return "https://open.spotify.com/playlist/37i9dQZF1EIgbjUtLiWmHt?si=c072c084502a4a9b";
+                case "Prog Rock":
+                    return "https://open.spotify.com/playlist/5TDtuKDbOhrfW7C58XnriZ?si=0eadd13accef4422";
+                case "Folk":
+                    return "https://open.spotify.com/playlist/03sDEv7FN58Mb9CJOs1Tgn?si=dab5d5d361644441";
+                default:
+                    return "https://open.spotify.com/playlist/18vUeZ9BdtMRNV6gI8RnR6?si=992089f885674d1dwat"; 
+            }
+        }
+    </script>
+ 
+ <div id="galeria">
+    <p>
+        Esta encuesta meticulosamente recopila los valores de tus respuestas y ejecuta operaciones minuciosas con el objetivo de determinar con precisión cuál es tu género musical preferido. Aquí una foto de los géneros más escuchados en países influyentes.
+    </p>
+    <img src="./imagenes/25305.jpeg" alt="Géneros más escuchados" />
+</div>
+<style>
+    #bienvenida img {
+        width: auto; 
+        height: auto; 
+    }
+
+    #galeria img {
+        width: 60%; 
+        height: auto; 
+    }
+</style>
+</body>
+
+</html>

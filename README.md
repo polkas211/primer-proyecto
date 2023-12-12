@@ -1,1 +1,2 @@
 # primer-proyecto
+Mi trabajo web "FindYourBeat" se fundamenta en la creación de una página web que busca encontrar tus estilos preferidos de música , empezé haciendo el inicio y decidí crear unas secciones para el header que llevaban a otras paginas.Cree 5 paginas: Inicio ,que servia para llevar a la pagina principal y donde están las direcciones y descripciones de las otras páginas, descubre, que es la pagina donde está el cuestionario de música que después de hacerlo te com

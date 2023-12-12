@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>FindYourBeat - Contacto</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>FindYourBeat</h1>
+        <img src="./imagenes/musicahtml.png" alt="Logo de FindYourBeat" />
+    </header>
+
+    <nav>
+        <a href="./index.html">Inicio</a>
+        <a href="./descubre.html">Descubre</a>
+        <a href="./sobremi.html">Sobre mi</a>
+        <a href="./fundamentos.html">fundamentos</a>
+        <a href="./contacto.html">Contacto</a>
+        <a href="./Red.html">Redes</a>
+    </nav>
+
+    <section id="contacto" class="button-section">
+        <h2>Contacto</h2>
+        <p>¡Contáctanos para cualquier pregunta o comentario!</p>
+
+        <form action="procesar_formulario.php" method="post">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje" required></textarea>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+</body>
+
+</html>
